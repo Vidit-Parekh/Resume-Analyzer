@@ -1,0 +1,10 @@
+streamlit
+spacy
+sentence-transformers
+torch
+pdfplumber
+python-docx
+numpy
+pandas
+pyppdf2
+pymupdf
