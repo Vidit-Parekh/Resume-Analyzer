@@ -111,21 +111,20 @@ Select streamlit_app.py as the entry point
 Click Deploy
 ```
 📘 Future Enhancements
-Integration with FastAPI backend
 
-Add LinkedIn job scraping
+  -Integration with FastAPI backend
 
-Auto-recommend missing skills
+  -Add LinkedIn job scraping
 
-Multi-resume batch analysis
+  -Auto-recommend missing skills
+
+  -Multi-resume batch analysis
 
 👨‍💻 Developed By
 
-Vidit Parekh
-
-📍 University of Cincinnati
-
-💼 AI & ML Enthusiast | Graduate Student | Aspiring ML Engineer
+  Vidit Parekh
+  📍 University of Cincinnati
+  💼 AI & ML Enthusiast | Graduate Student | Aspiring ML Engineer
 
 
 
