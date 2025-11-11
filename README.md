@@ -93,8 +93,8 @@ pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
-🧠 Example Output
-Tested on:
+🧠 Example Output Tested on:
+```bash
 
 Resume: Priya Mehta
 
@@ -104,7 +104,7 @@ Metric	Score
 Overall Match	28.75%
 Semantic Similarity	23.91%
 Skill Match	36.00%
-
+```
 
 ☁️ Deployment on Streamlit Cloud
 ```bash
