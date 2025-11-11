@@ -49,7 +49,7 @@ The app leverages **Transformer-based models**, **cosine similarity**, and **key
 ---
 
 ## 🧩 Folder Structure  
-
+```bash
 Resume-Analyzer/
 │
 ├── app/
@@ -67,7 +67,7 @@ Resume-Analyzer/
 ├── README.md
 └── architecture_diagram.png
 
-
+```
 
 ---
 
@@ -78,17 +78,14 @@ Resume-Analyzer/
 git clone https://github.com/viditparekh/Resume-Analyzer.git
 cd Resume-Analyzer
 2️⃣ Create and activate a virtual environment
-bash
-Copy code
+
 python3 -m venv venv
 source venv/bin/activate
 3️⃣ Install dependencies
-bash
-Copy code
+
 pip install -r requirements.txt
 4️⃣ Run the Streamlit app
-bash
-Copy code
+
 streamlit run streamlit_app.py
 🧠 Example Output
 Tested on:
@@ -112,7 +109,7 @@ Connect your GitHub repository
 Select streamlit_app.py as the entry point
 
 Click Deploy
-
+```
 📘 Future Enhancements
 Integration with FastAPI backend
 
@@ -133,8 +130,6 @@ Vidit Parekh
 This project is licensed under the MIT License — feel free to use, modify, and share.
 
 ⭐ If you like this project, consider giving it a star on GitHub!
-
-
 
 ---
 
