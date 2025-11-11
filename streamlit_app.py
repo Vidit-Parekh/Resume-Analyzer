@@ -1,95 +1,76 @@
+# streamlit_app.py
 import streamlit as st
-from app.model.similarity import compute_overall_match
-import spacy
+from app.model.job_matcher import JobMatcher
+import fitz  # PyMuPDF
+import io
 
-# =========================
-# Streamlit Page Setup
-# =========================
-st.set_page_config(
-    page_title="AI Resume Analyzer",
-    page_icon="🧠",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+st.set_page_config(page_title="AI Resume Analyzer", page_icon="🤖", layout="wide")
 
+# Title
 st.title("🤖 AI Resume & Job Description Analyzer")
-st.markdown("---")
+st.write("Upload your resume and job description to analyze skill and semantic match.")
 
-# =========================
-# File Upload + Input
-# =========================
-st.header("📄 Upload Your Resume")
-uploaded_resume = st.file_uploader("Upload your resume (PDF or TXT)", type=["pdf", "txt"])
+# Initialize matcher
+jm = JobMatcher()
 
-st.header("💼 Paste Job Description")
-job_description = st.text_area("Enter or paste the job description here", height=200)
 
-# =========================
-# Process Button
-# =========================
-if st.button("🔍 Analyze Match"):
-    if uploaded_resume is not None and job_description.strip():
-        with st.spinner("Processing resume and analyzing match..."):
-            # Read resume content
-            if uploaded_resume.name.endswith(".pdf"):
-                import fitz  # PyMuPDF
-                doc = fitz.open(stream=uploaded_resume.read(), filetype="pdf")
-                resume_text = " ".join([page.get_text("text") for page in doc])
-            else:
-                resume_text = uploaded_resume.read().decode("utf-8")
+# Helper function to read PDF files
+def extract_text_from_pdf(file):
+    text = ""
+    pdf_document = fitz.open(stream=io.BytesIO(file.read()), filetype="pdf")
+    for page_num in range(pdf_document.page_count):
+        text += pdf_document.load_page(page_num).get_text("text")
+    return text.strip()
 
-            # Compute similarity
-            similarity_score = compute_overall_match(resume_text, job_description)
 
-        st.markdown("---")
-        st.subheader("🧩 Extracted Skills from Resume")
+# File upload section
+col1, col2 = st.columns(2)
+with col1:
+    resume_file = st.file_uploader("📄 Upload Resume (PDF)", type=["pdf"])
+with col2:
+    job_file = st.file_uploader("🧾 Upload Job Description (PDF)", type=["pdf"])
 
-        if isinstance(similarity_score, dict):
-            st.write(", ".join(similarity_score.get("resume_skills", [])))
+# Or manual text input
+st.markdown("### Or Paste Text Below")
+resume_text = st.text_area("Resume Text", height=180, placeholder="Paste your resume text here...")
+job_desc = st.text_area("Job Description Text", height=180, placeholder="Paste job description here...")
 
-        st.markdown("### ⚙️ Analyzing Match...")
-        st.subheader("📊 Match Results")
+# Extract text from uploaded files if available
+if resume_file:
+    resume_text = extract_text_from_pdf(resume_file)
+if job_file:
+    job_desc = extract_text_from_pdf(job_file)
 
-        # Determine final display score
-        if isinstance(similarity_score, dict):
-            if "overall_match_score" in similarity_score:
-                display_score = similarity_score["overall_match_score"]
-            elif "overall_score" in similarity_score:
-                display_score = similarity_score["overall_score"]
-            else:
-                display_score = 0
-        else:
-            display_score = similarity_score
-
-        st.metric(label="Overall Match Score", value=f"{display_score:.2f}%")
-        st.progress(display_score / 100)
-
-        st.markdown("---")
-        st.subheader("Detailed Breakdown")
-
-        if isinstance(similarity_score, dict):
-            st.markdown(f"- **Semantic Similarity:** {similarity_score.get('semantic_similarity', 0):.2f}")
-            st.markdown(f"- **Skill Match Percentage:** {similarity_score.get('skill_match_percentage', 0):.2f}")
-            st.markdown(f"- **Matched Skills:** {similarity_score.get('matched_skills', [])}")
-            st.markdown(f"- **Job Skills Found:** {similarity_score.get('job_skills', [])}")
-            st.markdown(f"- **Overall Match Score:** {similarity_score.get('overall_match_score', 0):.2f}")
-        else:
-            st.warning("Unable to retrieve detailed breakdown — check the similarity function output.")
-
+# Run Analysis
+if st.button("🔍 Analyze Match", use_container_width=True):
+    if not resume_text or not job_desc:
+        st.error("Please provide both resume and job description text.")
     else:
-        st.error("⚠️ Please upload a resume and provide a job description to proceed.")
+        with st.spinner("Analyzing... Please wait ⏳"):
+            result = jm.analyze_from_text(resume_text, job_desc)
 
-# =========================
-# Sidebar Information
-# =========================
-st.sidebar.title("ℹ️ About This App")
-st.sidebar.markdown(
-    """
-    This app uses advanced **NLP and embedding models** to analyze:
-    - Skill match between your resume and a job description  
-    - Semantic similarity of your experience and job requirements  
-    - Overall compatibility score  
+        st.success("✅ Analysis Complete!")
 
-    Built using **SpaCy, Sentence Transformers, and Streamlit**.
-    """
-)
+        # Display results
+        st.markdown("## 📊 Results")
+
+        col_a, col_b, col_c = st.columns(3)
+        col_a.metric("Overall Match", f"{result['overall_match_score']:.2f}%")
+        col_b.metric("Semantic Similarity", f"{result['semantic_similarity']:.2f}%")
+        col_c.metric("Skill Match", f"{result['skill_match']:.2f}%")
+
+        st.progress(result["overall_match_score"] / 100)
+
+        # Display skills
+        st.markdown("### 💡 Extracted Skills")
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("Matched Skills")
+            st.write(", ".join(result["matched_skills"]) or "No skills matched.")
+        with col2:
+            st.subheader("Missing Skills")
+            st.write(", ".join(result["missing_skills"]) or "All skills matched!")
+
+# Footer
+st.markdown("---")
+st.caption("Built with ❤️ using Streamlit, spaCy, and scikit-learn")

@@ -1,0 +1,30 @@
+Test Job Description
+
+Position: Machine Learning Engineer (Intern)
+Company: DataVerse Analytics
+
+Responsibilities
+
+Build and maintain machine learning models for text and data analysis.
+
+Implement NLP pipelines for resume parsing and job recommendation.
+
+Deploy models using Docker and Kubernetes.
+
+Collaborate with data scientists and backend engineers to improve production pipelines.
+
+Required Skills
+
+Strong knowledge of Python, TensorFlow, and PyTorch.
+
+Experience with NLP frameworks (SpaCy, Transformers).
+
+Understanding of data preprocessing and feature engineering.
+
+Familiarity with Docker, Kubernetes, and Git.
+
+Preferred
+
+Exposure to Streamlit or other web-based ML interfaces.
+
+Experience with BERT or other transformer models.

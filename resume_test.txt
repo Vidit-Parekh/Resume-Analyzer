@@ -1,0 +1,46 @@
+Name: Priya Mehta
+Email: priya.mehta@example.com
+
+Phone: +1 (555) 234-5678
+Location: Cincinnati, OH
+
+🎓 Education
+
+Master of Science in Computer Science
+University of Cincinnati — Expected May 2026
+
+Bachelor of Technology in Computer Engineering
+University of Mumbai — Graduated 2024
+
+💼 Experience
+
+Machine Learning Intern | TechNova AI Labs | May 2024 – Aug 2024
+
+Built and optimized deep learning models for text classification and resume parsing using Python and TensorFlow.
+
+Fine-tuned BERT-based models for semantic similarity tasks.
+
+Worked on Docker-based deployment for scalable inference.
+
+Research Assistant | University of Mumbai | Jan 2023 – Dec 2023
+
+Conducted research on ethical AI and autonomous systems.
+
+Implemented NLP pipelines using SpaCy and Hugging Face Transformers.
+
+🧠 Skills
+
+Programming: Python, Java, SQL
+
+ML & AI Tools: TensorFlow, PyTorch, Scikit-learn, Hugging Face
+
+Data: Pandas, NumPy, Matplotlib
+
+DevOps: Docker, Kubernetes, Git
+
+Other: REST APIs, Streamlit, FastAPI
+
+🏆 Projects
+
+AI Resume & Job Match Analyzer
+Developed an NLP-powered system that evaluates resumes against job descriptions using semantic similarity and keyword extraction.

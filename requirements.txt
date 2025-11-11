@@ -4,7 +4,7 @@ sentence-transformers
 torch
 pdfplumber
 python-docx
+plotly
+scikit-learn
 numpy
-pandas
-pyppdf2
-pymupdf
+PyMuPDF
