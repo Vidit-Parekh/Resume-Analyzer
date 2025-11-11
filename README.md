@@ -112,19 +112,19 @@ Click Deploy
 ```
 📘 Future Enhancements
 
-  -Integration with FastAPI backend
+  - Integration with FastAPI backend
 
-  -Add LinkedIn job scraping
+  - Add LinkedIn job scraping
 
-  -Auto-recommend missing skills
+  - Auto-recommend missing skills
 
-  -Multi-resume batch analysis
+  - Multi-resume batch analysis
 
 👨‍💻 Developed By
 
   Vidit Parekh
-   | University of Cincinnati
-   | AI & ML Enthusiast | Graduate Student | Aspiring ML Engineer
+   |  University of Cincinnati
+   |  AI & ML Enthusiast | Graduate Student | Aspiring ML Engineer
 
 
 
