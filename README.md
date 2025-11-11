@@ -106,7 +106,7 @@ Semantic Similarity	23.91%
 Skill Match	36.00%
 
 
-☁️ D1eployment on Streamlit Cloud
+☁️ Deployment on Streamlit Cloud
 ```bash
 1. Push your repo to GitHub
 
@@ -142,6 +142,3 @@ This project is licensed under the MIT License — feel free to use, modify, and
 ⭐ If you like this project, consider giving it a star on GitHub!
 
 ---
-
-Would you like me to **embed the architecture diagram in dark mode with a transparent background** version (so it matches your GitHub dark theme automatically)?  
-I can regenerate that image for you in a few seconds.
