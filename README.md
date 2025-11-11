@@ -20,7 +20,7 @@ The app leverages **Transformer-based models**, **cosine similarity**, and **key
 ## 🧭 Architecture Diagram  
 
 <div align="center">
-  <img src="A_flowchart_in_the_digital_image_illustrates_an_AI.png" alt="Architecture Diagram" width="85%">
+  <img src="Resume_analyzer.jpg" alt="Architecture Diagram" width="85%">
 </div>
 
 ---
