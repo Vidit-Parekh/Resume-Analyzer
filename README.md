@@ -123,8 +123,8 @@ Click Deploy
 👨‍💻 Developed By
 
   Vidit Parekh
-  📍 University of Cincinnati
-  💼 AI & ML Enthusiast | Graduate Student | Aspiring ML Engineer
+   | University of Cincinnati
+   | AI & ML Enthusiast | Graduate Student | Aspiring ML Engineer
 
 
 
