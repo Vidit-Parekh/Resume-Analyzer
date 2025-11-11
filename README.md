@@ -77,16 +77,22 @@ Resume-Analyzer/
 ```bash
 git clone https://github.com/viditparekh/Resume-Analyzer.git
 cd Resume-Analyzer
-2️⃣ Create and activate a virtual environment
-
+```
+### 2️⃣ Create and activate a virtual environment
+```bash
 python3 -m venv venv
 source venv/bin/activate
+```
 3️⃣ Install dependencies
-
+```bash
 pip install -r requirements.txt
-4️⃣ Run the Streamlit app
+```
 
+4️⃣ Run the Streamlit app
+```bash
 streamlit run streamlit_app.py
+```
+
 🧠 Example Output
 Tested on:
 
@@ -99,16 +105,18 @@ Overall Match	28.75%
 Semantic Similarity	23.91%
 Skill Match	36.00%
 
-☁️ Deployment on Streamlit Cloud
-Push your repo to GitHub
 
-Go to Streamlit Cloud
+☁️ D1eployment on Streamlit Cloud
+```bash
+1. Push your repo to GitHub
 
-Connect your GitHub repository
+2. Go to Streamlit Cloud
 
-Select streamlit_app.py as the entry point
+3. Connect your GitHub repository
 
-Click Deploy
+4. Select streamlit_app.py as the entry point
+
+5. Click Deploy
 ```
 📘 Future Enhancements
 
