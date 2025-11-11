@@ -50,22 +50,28 @@ The app leverages **Transformer-based models**, **cosine similarity**, and **key
 
 ## 🧩 Folder Structure  
 ```bash
-Resume-Analyzer/
-│
+RESUME-ANALYZER/
 ├── app/
-│ ├── model/
-│ │ ├── job_matcher.py
-│ ├── utils/
-│ │ ├── nlp_utils.py
-│
-├── data/
-│ ├── sample_resume.pdf
-│ ├── job_description.txt
-│
-├── streamlit_app.py
-├── requirements.txt
+│   ├── model/
+│   │   ├── __init__.py
+│   │   ├── job_matcher.py
+│   │   ├── resume_parser.py
+│   │   ├── similarity.py
+│   │   ├── skill_extractor.py
+│   ├── tests/
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── file_handler.py
+│   │   ├── nlp_utils.py
+├── .gitignore
+├── jd_test.txt
 ├── README.md
-└── architecture_diagram.png
+├── requirements.txt
+├── Resume_analyzer.drawio
+├── Resume_analyzer.jpg
+├── resume_test.txt
+├── streamlit_app.py
+
 
 ```
 
