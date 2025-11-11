@@ -120,8 +120,11 @@ Auto-recommend missing skills
 Multi-resume batch analysis
 
 👨‍💻 Developed By
+
 Vidit Parekh
+
 📍 University of Cincinnati
+
 💼 AI & ML Enthusiast | Graduate Student | Aspiring ML Engineer
 
 
