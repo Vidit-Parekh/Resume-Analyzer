@@ -10,8 +10,12 @@ st.set_page_config(page_title="AI Resume Analyzer", page_icon="🤖", layout="wi
 st.title("🤖 AI Resume & Job Description Analyzer")
 st.write("Upload your resume and job description to analyze skill and semantic match.")
 
-# Initialize matcher
-jm = JobMatcher()
+# Cache the matcher to avoid reloading models on every rerun
+@st.cache_resource
+def get_job_matcher():
+    return JobMatcher()
+
+jm = get_job_matcher()
 
 
 # Helper function to read PDF files
